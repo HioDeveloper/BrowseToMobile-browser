@@ -1,126 +1,63 @@
 # BrowseToMobile Browser
 
-**A lightweight Android web browser built for convenient everyday browsing.**
+**A lightweight Android web browser built with Java and Android WebView.**
 
-BrowseToMobile (B2M) is an Android browser based on the native Android WebView engine. It provides a straightforward browsing experience with tab management, customizable search settings, mobile and desktop modes, and support for modern web content.
+BrowseToMobile Browser provides a simple browsing experience with tab management, customizable settings, desktop and mobile browsing modes, and support for modern web features.
 
 ## Features
 
-- **Tabbed Browsing** — Open, switch between, and close multiple browser tabs.
-- **Address Bar** — Navigate directly to websites or search the web using your configured search engine.
-- **Custom Start Page** — Built-in start page with a search field and quick links to popular websites.
-- **Mobile Mode** — Optimizes websites for mobile screens using a mobile User-Agent and viewport adjustments.
-- **Desktop Mode** — Browse websites using a desktop browser User-Agent.
-- **JavaScript Support** — Enable or disable JavaScript through browser settings.
-- **Download Manager** — Download files directly to the Android Downloads directory.
-- **Fullscreen Support** — View fullscreen web content, including video playback.
-- **Web Compatibility** — Supports cookies, DOM storage, website zooming, and multiple browser windows.
-- **Geolocation Support** — Allows websites to request access to device location.
-- **File Uploads** — Supports file selection and uploads through web forms.
-- **External App Integration** — Handles links such as `mailto:`, `tel:`, `sms:`, `geo:`, and Android intent URLs.
-
-## Screenshots
-
-Screenshots will be added here.
+- **Multi-tab browsing** — create, switch between, and close tabs.
+- **Address bar** — enter website URLs or search directly.
+- **Built-in start page** — quick access to Google, YouTube, Wikipedia, and GitHub.
+- **Custom homepage** — use the built-in start page or set your own URL.
+- **Custom search engine URL** — configure a search URL using the `{text}` placeholder.
+- **Mobile and desktop modes** — switch between mobile and desktop User-Agent settings.
+- **JavaScript control** — enable or disable JavaScript.
+- **Downloads** — download files using Android DownloadManager.
+- **File uploads** — select files through the browser's file chooser.
+- **Geolocation** — support for websites requesting location access.
+- **Camera and microphone** — WebRTC permission support.
+- **Fullscreen support** — custom fullscreen views and video playback.
+- **External links** — handle `mailto:`, `tel:`, `sms:`, `geo:`, `intent:`, and `market:` links.
+- **Browser history navigation** — use the Android back button to navigate backward through pages.
 
 ## Browser Settings
 
-BrowseToMobile provides several configurable options:
+BrowseToMobile Browser supports several configurable options:
 
 | Setting | Description |
 |---|---|
-| Homepage | Configure the browser's homepage or use the built-in start page. |
-| Search Engine | Set a custom search URL using `{text}` as the search query placeholder. |
-| Mobile Mode | Switch between mobile and desktop browsing modes. |
-| JavaScript | Enable or disable JavaScript execution. |
+| Homepage | Choose the start page or a custom URL |
+| Search URL | Configure the search engine endpoint |
+| User-Agent | Switch between mobile and desktop modes |
+| JavaScript | Enable or disable JavaScript |
+| Zoom | Configure page zoom behavior |
 
-### Custom Search Engine
+## Technical Details
 
-You can configure your preferred search provider using a URL template.
+| Property | Value |
+|---|---|
+| Application name | B2M Browser |
+| Package name | `com.hiosw.b2m` |
+| Language | Java |
+| Browser engine | Android WebView |
+| Minimum Android version | Android 6.0 (API 23) |
+| Target SDK | Android 10 (API 29) |
+| Version | 1.0 |
 
-Example:
+## Limitations
 
-```text
-https://www.google.com/search?q={text}
-```
+- Downloads from `blob:` and `data:` URLs are not supported.
+- Website functionality may depend on the Android WebView version installed on the device.
+- Some websites may behave differently in mobile and desktop modes.
 
-The `{text}` placeholder is automatically replaced with your search query.
+## License
 
-## Technology
-
-- **Platform:** Android
-- **Language:** Java
-- **Browser Engine:** Android WebView
-- **Application ID:** `com.hiosw.b2m`
-- **Minimum Android SDK:** 23 (Android 6.0)
-- **Target Android SDK:** 29
-- **UI:** Native Android UI
-
-## Project Structure
-
-```text
-BrowseToMobile-browser/
-├── .github/
-│   └── workflows/
-│       ├── blank.yml
-│       └── extract-archive.yml
-├── resources/
-│   ├── AndroidManifest.xml
-│   ├── META-INF/
-│   └── res/
-└── sources/
-    ├── android/
-    ├── androidx/
-    └── com/
-        └── hiosw/
-            └── b2m/
-                ├── BuildConfig.java
-                ├── MainActivity.java
-                └── R.java
-```
-
-## Permissions
-
-The application declares Android permissions for:
-
-- Internet access
-- Network state
-- Camera
-- Microphone and audio settings
-- Device location
-- Storage and file access
-- Notifications
-
-Some permissions are requested only when the corresponding functionality is used.
-
-## Source Code
-
-This repository contains the Android application source files and resources.
-
-The source archive import workflow is available through GitHub Actions:
-
-1. Place the source ZIP archive in the repository root.
-2. Open **Actions**.
-3. Select **Extract browser archive**.
-4. Run the workflow manually.
-
-The workflow extracts the `android-app-b2m-source` directory, imports its contents into the repository root, and commits the changes.
-
-## Development
-
-The repository currently contains extracted Android source files and resources. A complete Gradle build configuration is not included.
-
-## About
-
-BrowseToMobile Browser is a HioSW project focused on providing a simple and practical Android browsing experience.
-
-**Building things that actually work.**
-
-Developed by **HioSW**.
-
-- GitHub: https://github.com/HioDeveloper
-- Project: https://github.com/HioDeveloper/BrowseToMobile-browser
+See the repository's license information.
 
 ---
 
-*BrowseToMobile — Browse the web your way.*
+**BrowseToMobile Browser**  
+Developed by **HioSW**.
+
+*Building things that actually work.*
