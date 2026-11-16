@@ -29,15 +29,24 @@ jobs:
           mkdir -p extracted
           unzip -q "$ZIP_FILE" -d extracted
 
-          FILE_COUNT="$(find extracted -type f | wc -l | tr -d ' ')"
-          echo "Extracted files: $FILE_COUNT"
-          if [ "$FILE_COUNT" -eq 0 ]; then
-            echo "::error::Archive contains no files."
+          SOURCE_DIR="extracted/android-app-b2m-source"
+          if [ ! -d "$SOURCE_DIR" ]; then
+            echo "::error::Expected folder android-app-b2m-source was not found."
+            find extracted -maxdepth 2 -type d
             exit 1
           fi
 
-          find extracted -type f | head -20
-          cp -a extracted/. .
+          FILE_COUNT="$(find "$SOURCE_DIR" -type f | wc -l | tr -d ' ')"
+          echo "Source files extracted: $FILE_COUNT"
+          if [ "$FILE_COUNT" -eq 0 ]; then
+            echo "::error::Archive contains no source files."
+            exit 1
+          fi
+
+          echo "First 20 extracted files:"
+          find "$SOURCE_DIR" -type f | sed -n '1,20p'
+
+          cp -a "$SOURCE_DIR"/. .
           rm -rf extracted
           rm -f "$ZIP_FILE"
 
